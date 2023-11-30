@@ -2,9 +2,6 @@
   "name": "text-editor",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "18.18.2"
-  },
   "main": "server.js",
   "scripts": {
     "start:dev": "concurrently \"npm run server\" \"npm run client\"",
