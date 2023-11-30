@@ -4,15 +4,17 @@ const butInstall = document.getElementById('buttonInstall');
 // TODO: Add an event handler to the `beforeinstallprompt` event
 window.addEventListener('beforeinstallprompt', (event) => {
   
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    event.preventDefault();
     // Stash the event so it can be triggered later.
-    deferredPrompt = event;
+    window.deferredPrompt = event;
     // Update UI notify the user they can add to home screen
     butInstall.removeAttribute('hidden');
 });
 
 // TODO: Implement a click event handler on the `butInstall` element
 butInstall.addEventListener('click', async () => {
-    const promptEvent = deferredPrompt;
+    const promptEvent = window.deferredPrompt;
     if (!promptEvent) {
         // The deferred prompt isn't available.
         return;
